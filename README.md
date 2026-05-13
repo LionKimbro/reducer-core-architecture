@@ -1,0 +1,1 @@
+# reducer-core-architecture

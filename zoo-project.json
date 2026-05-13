@@ -1,0 +1,13 @@
+{
+  "zookeep-project-guid": "d1ef8850-2164-43d6-aafb-6a86325640af",
+  "name": "reducer-core-architecture",
+  "repo-type": "python-2026-03",
+  "license": "CC0-1.0",
+  "repository": {
+    "name": "reducer-core-architecture",
+    "visibility": "public"
+  },
+  "python-package": {
+    "name": "reducer_core"
+  }
+}
