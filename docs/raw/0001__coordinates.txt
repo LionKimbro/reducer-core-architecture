@@ -1,0 +1,26 @@
+date: 2026-05-13
+title: Coordinates for Reducer-Core Architecture
+
+
+== Related Documents ==
+date: 2026-05-13
+
+Blackboard-Judge (Continuous Interpretation) Project
+  f:/lion/github/blackboard-judge-architecture-demo/
+  f:/lion/github/blackboard-judge-architecture-demo/docs/book/
+  f:/lion/github/blackboard-judge-architecture-demo/docs/raw/
+  f:/lion/github/blackboard-judge-architecture-demo/docs/raw/20__world-model_reducer-core_blackboard-judge_projection.json
+  CORE SPECIFICATION is kept in lions-documents:
+    F:\lion\github\lions-documents\explorations-with-wing-cat\0005__2026-03-23__interaction-architecture_blackboard-judge.json
+
+Integrated Picture:
+  f:/lion/github/blackboard-judge-architecture-demo/docs/raw/20__world-model_reducer-core_blackboard-judge_projection.json
+
+
+== Conversations with Wing-Cat ==
+date: 2026-05-13
+
+2026-05-13 https://chatgpt.com/c/6a04c5fc-b6ec-83e8-bee9-7d46f924b021
+  Writing the first Reducer Core Architecture documents.
+
+

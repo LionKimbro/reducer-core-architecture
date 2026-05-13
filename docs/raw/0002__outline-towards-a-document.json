@@ -1,0 +1,361 @@
+{
+  "document": {
+    "document-id": "reducer-core.notes.towards-document.v1",
+    "title": "Notes Towards a Reducer Core Document",
+    "tags": [
+      "reducer-core",
+      "architecture",
+      "state-management",
+      "event-systems",
+      "semantic-events",
+      "notes",
+      "planning",
+      "drafting"
+    ],
+    "purpose": "Collect architectural notes, distinctions, questions, terminology, boundaries, candidate outlines, and conceptual discoveries towards a future formal Reducer Core document.",
+    "author": [
+      "Lion Kimbro",
+      "Wing-Cat (Chat-GPT)"
+    ],
+    "status": "raw-notes"
+  },
+
+  "orientation": {
+    "summary": "This document is not itself the Reducer Core document. It is a staging ground for discoveries, distinctions, architectural principles, unresolved questions, candidate outlines, terminology work, and implementation-oriented thinking related to the Reducer Core architecture.",
+    "goal": "Stabilize the conceptual architecture sufficiently that future implementations become more predictable, disciplined, and consciously structured.",
+    "important-note": "The purpose is discovery and organization, not premature canonization."
+  },
+
+  "core-discovery": {
+    "summary": "Reducer Core and Blackboard-Judge appear to operate on fundamentally different temporal models.",
+    "distinction": {
+      "blackboard-judge": "Continuous situation processing.",
+      "reducer-core": "Discrete semantic event processing."
+    },
+    "working-formulation": [
+      "Blackboard-Judge asks: 'What is happening right now?'",
+      "Reducer Core asks: 'What officially happened?'"
+    ],
+    "importance": "This distinction appears foundational and may become one of the central organizing principles of the eventual architecture."
+  },
+
+  "important-architectural-claim": {
+    "claim": "Reducer events are normalized semantic events, not raw interaction phenomena.",
+    "examples": {
+      "many-inputs-one-semantic-event": [
+        {
+          "interaction": "User clicks File -> Exit",
+          "semantic-event": "EXIT"
+        },
+        {
+          "interaction": "User presses Ctrl-Q",
+          "semantic-event": "EXIT"
+        },
+        {
+          "interaction": "User performs a mouse gesture recognized as quit",
+          "semantic-event": "EXIT"
+        }
+      ]
+    },
+    "important-consequence": "Reducer Core becomes independent of the interaction modality that produced the semantic event."
+  },
+
+  "possible-central-principles": [
+    "Reducer Core consumes semantic events, not raw interaction events.",
+    "Not every event deserves semantic historicity.",
+    "Reducer state is orientation within reality, not reality itself.",
+    "Reducer Core lives in discrete semantic transitions.",
+    "Blackboard-Judge lives in continuity.",
+    "Semantic events are modality-independent.",
+    "Interaction systems recognize meaning; reducers process meaning.",
+    "Reducer Core should remain compact.",
+    "Reducer Core should not become a dumping ground for all state."
+  ],
+
+  "possible-topics": {
+    "semantic-events": [
+      "What qualifies as a semantic event?",
+      "Normalization across modalities.",
+      "Semantic event naming conventions.",
+      "Relationship between semantic events and history."
+    ],
+
+    "workspace-state": [
+      "Selection state.",
+      "Focused object.",
+      "Active tool.",
+      "Current mode.",
+      "Panel focus.",
+      "Visible region.",
+      "History cursor."
+    ],
+
+    "history": [
+      "What belongs in reducer history?",
+      "Undo/redo boundaries.",
+      "Semantic history vs interaction history.",
+      "Compact history vs world history."
+    ],
+
+    "event-taxonomy": [
+      "Raw input events.",
+      "Interaction events.",
+      "Semantic events.",
+      "Workspace/session events.",
+      "Projection effects.",
+      "World mutation events."
+    ],
+
+    "relationship-to-world-model": [
+      "Reducer as orientation within world.",
+      "Reducer references world state without containing all world data.",
+      "Reducer-generated world revision IDs.",
+      "World mutation command emission."
+    ],
+
+    "relationship-to-blackboard-judge": [
+      "Blackboard-Judge as semantic interpretation ecology.",
+      "Continuous-to-discrete transition.",
+      "Why reducers should not directly consume raw interaction streams.",
+      "Why Blackboard-Judge exists."
+    ],
+
+    "relationship-to-projection": [
+      "Projection should remain downstream.",
+      "Projection effects vs semantic state.",
+      "Transient visual consequences."
+    ]
+  },
+
+  "possible-distinctions-to-develop": {
+    "continuous-vs-discrete": {
+      "continuous": [
+        "hover",
+        "drag",
+        "gesture recognition",
+        "pointer ownership",
+        "selection box in progress"
+      ],
+      "discrete": [
+        "DELETE_ITEM",
+        "EXIT",
+        "CREATE_CONTACT",
+        "SET_SELECTION",
+        "COMMIT_TEXT_EDIT"
+      ]
+    },
+
+    "interaction-vs-semantic": {
+      "interaction": [
+        "pointer moved",
+        "button pressed",
+        "hover entered",
+        "drag threshold crossed"
+      ],
+      "semantic": [
+        "NODE_MOVE_COMPLETED",
+        "EXIT",
+        "DELETE_ITEM",
+        "CREATE_EDGE"
+      ]
+    },
+
+    "transient-vs-historical": {
+      "transient": [
+        "hover highlight",
+        "drag rectangle",
+        "selection preview"
+      ],
+      "historical": [
+        "document edited",
+        "contact created",
+        "entity deleted"
+      ]
+    },
+
+    "workspace-vs-world": {
+      "workspace": [
+        "current selection",
+        "active tool",
+        "current mode",
+        "focused panel"
+      ],
+      "world": [
+        "actual entities",
+        "durable documents",
+        "stored geometry",
+        "knowledge graph contents"
+      ]
+    }
+  },
+
+  "possible-misunderstandings-to-guard-against": [
+    "Reducer Core is not merely a place where state changes happen.",
+    "Reducer Core is not identical to Redux.",
+    "Reducer Core is not the entire application state.",
+    "Not every GUI occurrence should become a reducer event.",
+    "Reducer Core should not directly process raw pointer movement.",
+    "Interaction interpretation should not be collapsed into reducer logic.",
+    "Projection should not own semantic truth."
+  ],
+
+  "candidate-formulations": [
+    "Reducer Core is a constitutional engine for semantic transition.",
+    "Reducer Core processes normalized semantic declarations.",
+    "Reducer Core converts semantic events into lawful session/world transitions.",
+    "Reducer Core stabilizes semantic history.",
+    "Reducer Core coordinates workspace orientation within larger reality."
+  ],
+
+  "possible-questions": [
+    "What makes an event semantically meaningful?",
+    "What belongs in reducer history?",
+    "Should selection belong to reducer state?",
+    "Should reducers emit world mutation commands or world mutation events?",
+    "Should reducers be pure?",
+    "Can reducers emit secondary effects?",
+    "How should reducer history interact with world history?",
+    "How much reducer state should be persistent?",
+    "What belongs in workspace state versus world state?",
+    "Should reducer events be append-only?",
+    "Should reducers generate intended world revision IDs?"
+  ],
+
+  "possible-outline": {
+    "section-1": {
+      "title": "Orientation and Purpose",
+      "possible-contents": [
+        "Why reducer architecture matters.",
+        "Problems being solved.",
+        "Difference from monolithic state systems."
+      ]
+    },
+
+    "section-2": {
+      "title": "Continuous vs Discrete Systems",
+      "possible-contents": [
+        "Blackboard-Judge vs Reducer Core.",
+        "Temporal models.",
+        "Embodied interaction vs semantic transition."
+      ]
+    },
+
+    "section-3": {
+      "title": "Semantic Events",
+      "possible-contents": [
+        "Definition.",
+        "Normalization.",
+        "Modality independence.",
+        "Examples and anti-examples."
+      ]
+    },
+
+    "section-4": {
+      "title": "Reducer State",
+      "possible-contents": [
+        "Workspace state.",
+        "Session orientation.",
+        "Compactness discipline.",
+        "What should and should not live in reducer state."
+      ]
+    },
+
+    "section-5": {
+      "title": "Reducer History",
+      "possible-contents": [
+        "Undo/redo.",
+        "Semantic history.",
+        "Compact historical records.",
+        "Relationship to world history."
+      ]
+    },
+
+    "section-6": {
+      "title": "Relationship to the World Model",
+      "possible-contents": [
+        "World references.",
+        "Mutation commands.",
+        "Revision identities.",
+        "World synchronization."
+      ]
+    },
+
+    "section-7": {
+      "title": "Relationship to Blackboard-Judge",
+      "possible-contents": [
+        "Semantic interpretation pipeline.",
+        "Interaction ecology.",
+        "Continuous-to-discrete transition."
+      ]
+    },
+
+    "section-8": {
+      "title": "Relationship to Projection",
+      "possible-contents": [
+        "Projection downstreamness.",
+        "Transient visual consequences.",
+        "Projection effects."
+      ]
+    },
+
+    "section-9": {
+      "title": "Implementation Guidance",
+      "possible-contents": [
+        "Minimal reducer-first applications.",
+        "Merchant contact database example.",
+        "Event queue structure.",
+        "Testing strategies."
+      ]
+    }
+  },
+
+  "implementation-experiments": {
+    "merchant-contact-database": {
+      "importance": "Potentially ideal first canonical reducer-core implementation.",
+      "reasoning": [
+        "Minimal continuous interaction complexity.",
+        "Mostly semantic transitions.",
+        "Good for studying reducer event design.",
+        "Good for studying workspace state.",
+        "Good for studying history and persistence."
+      ],
+      "possible-events": [
+        "CREATE_CONTACT",
+        "DELETE_CONTACT",
+        "SET_CONTACT_NAME",
+        "SET_CONTACT_PHONE",
+        "SET_CONTACT_EMAIL",
+        "SET_NOTES",
+        "MARK_CONTACT_AS_BUYER",
+        "SET_TAGS",
+        "OPEN_CONTACT",
+        "SET_SELECTION"
+      ]
+    }
+  },
+
+  "possible-slogans": [
+    "Blackboard-Judge lives in continuity.",
+    "Reducer Core lives in semantic transition.",
+    "Not every event deserves history.",
+    "Reducer state is orientation within reality.",
+    "Semantic events are modality-independent.",
+    "Interaction recognizes meaning; reducers process meaning.",
+    "Reducer Core consumes semantic declarations, not raw phenomena."
+  ],
+
+  "related-documents": [
+    "interaction-architecture-blackboard-judge.v1",
+    "blackboard-judge-architecture.raw.world-model-reducer-core-blackboard-judge-projection.v1",
+    "softspec.spec.v2",
+    "lions-docs.description.json-document-format-for-llms.minimal.v1"
+  ],
+
+  "notes": [
+    "This document should remain flexible and exploratory.",
+    "Contradictory ideas may coexist temporarily.",
+    "Architectural discoveries should be preserved before cleanup.",
+    "Premature formalization should be resisted.",
+    "Implementation experience should guide later canonization."
+  ]
+}
