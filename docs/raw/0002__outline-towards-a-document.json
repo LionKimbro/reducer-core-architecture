@@ -19,13 +19,11 @@
     ],
     "status": "raw-notes"
   },
-
   "orientation": {
     "summary": "This document is not itself the Reducer Core document. It is a staging ground for discoveries, distinctions, architectural principles, unresolved questions, candidate outlines, terminology work, and implementation-oriented thinking related to the Reducer Core architecture.",
     "goal": "Stabilize the conceptual architecture sufficiently that future implementations become more predictable, disciplined, and consciously structured.",
     "important-note": "The purpose is discovery and organization, not premature canonization."
   },
-
   "core-discovery": {
     "summary": "Reducer Core and Blackboard-Judge appear to operate on fundamentally different temporal models.",
     "distinction": {
@@ -38,7 +36,6 @@
     ],
     "importance": "This distinction appears foundational and may become one of the central organizing principles of the eventual architecture."
   },
-
   "important-architectural-claim": {
     "claim": "Reducer events are normalized semantic events, not raw interaction phenomena.",
     "examples": {
@@ -59,7 +56,6 @@
     },
     "important-consequence": "Reducer Core becomes independent of the interaction modality that produced the semantic event."
   },
-
   "possible-central-principles": [
     "Reducer Core consumes semantic events, not raw interaction events.",
     "Not every event deserves semantic historicity.",
@@ -71,7 +67,6 @@
     "Reducer Core should remain compact.",
     "Reducer Core should not become a dumping ground for all state."
   ],
-
   "possible-topics": {
     "semantic-events": [
       "What qualifies as a semantic event?",
@@ -79,7 +74,6 @@
       "Semantic event naming conventions.",
       "Relationship between semantic events and history."
     ],
-
     "workspace-state": [
       "Selection state.",
       "Focused object.",
@@ -89,14 +83,12 @@
       "Visible region.",
       "History cursor."
     ],
-
     "history": [
       "What belongs in reducer history?",
       "Undo/redo boundaries.",
       "Semantic history vs interaction history.",
       "Compact history vs world history."
     ],
-
     "event-taxonomy": [
       "Raw input events.",
       "Interaction events.",
@@ -105,28 +97,24 @@
       "Projection effects.",
       "World mutation events."
     ],
-
     "relationship-to-world-model": [
       "Reducer as orientation within world.",
       "Reducer references world state without containing all world data.",
       "Reducer-generated world revision IDs.",
       "World mutation command emission."
     ],
-
     "relationship-to-blackboard-judge": [
       "Blackboard-Judge as semantic interpretation ecology.",
       "Continuous-to-discrete transition.",
       "Why reducers should not directly consume raw interaction streams.",
       "Why Blackboard-Judge exists."
     ],
-
     "relationship-to-projection": [
       "Projection should remain downstream.",
       "Projection effects vs semantic state.",
       "Transient visual consequences."
     ]
   },
-
   "possible-distinctions-to-develop": {
     "continuous-vs-discrete": {
       "continuous": [
@@ -144,7 +132,6 @@
         "COMMIT_TEXT_EDIT"
       ]
     },
-
     "interaction-vs-semantic": {
       "interaction": [
         "pointer moved",
@@ -159,7 +146,6 @@
         "CREATE_EDGE"
       ]
     },
-
     "transient-vs-historical": {
       "transient": [
         "hover highlight",
@@ -172,7 +158,6 @@
         "entity deleted"
       ]
     },
-
     "workspace-vs-world": {
       "workspace": [
         "current selection",
@@ -188,7 +173,6 @@
       ]
     }
   },
-
   "possible-misunderstandings-to-guard-against": [
     "Reducer Core is not merely a place where state changes happen.",
     "Reducer Core is not identical to Redux.",
@@ -198,7 +182,6 @@
     "Interaction interpretation should not be collapsed into reducer logic.",
     "Projection should not own semantic truth."
   ],
-
   "candidate-formulations": [
     "Reducer Core is a constitutional engine for semantic transition.",
     "Reducer Core processes normalized semantic declarations.",
@@ -206,7 +189,6 @@
     "Reducer Core stabilizes semantic history.",
     "Reducer Core coordinates workspace orientation within larger reality."
   ],
-
   "possible-questions": [
     "What makes an event semantically meaningful?",
     "What belongs in reducer history?",
@@ -220,7 +202,6 @@
     "Should reducer events be append-only?",
     "Should reducers generate intended world revision IDs?"
   ],
-
   "possible-outline": {
     "section-1": {
       "title": "Orientation and Purpose",
@@ -230,7 +211,6 @@
         "Difference from monolithic state systems."
       ]
     },
-
     "section-2": {
       "title": "Continuous vs Discrete Systems",
       "possible-contents": [
@@ -239,7 +219,6 @@
         "Embodied interaction vs semantic transition."
       ]
     },
-
     "section-3": {
       "title": "Semantic Events",
       "possible-contents": [
@@ -249,7 +228,6 @@
         "Examples and anti-examples."
       ]
     },
-
     "section-4": {
       "title": "Reducer State",
       "possible-contents": [
@@ -259,7 +237,6 @@
         "What should and should not live in reducer state."
       ]
     },
-
     "section-5": {
       "title": "Reducer History",
       "possible-contents": [
@@ -269,7 +246,6 @@
         "Relationship to world history."
       ]
     },
-
     "section-6": {
       "title": "Relationship to the World Model",
       "possible-contents": [
@@ -279,7 +255,6 @@
         "World synchronization."
       ]
     },
-
     "section-7": {
       "title": "Relationship to Blackboard-Judge",
       "possible-contents": [
@@ -288,7 +263,6 @@
         "Continuous-to-discrete transition."
       ]
     },
-
     "section-8": {
       "title": "Relationship to Projection",
       "possible-contents": [
@@ -297,7 +271,6 @@
         "Projection effects."
       ]
     },
-
     "section-9": {
       "title": "Implementation Guidance",
       "possible-contents": [
@@ -308,7 +281,6 @@
       ]
     }
   },
-
   "implementation-experiments": {
     "merchant-contact-database": {
       "importance": "Potentially ideal first canonical reducer-core implementation.",
@@ -333,7 +305,6 @@
       ]
     }
   },
-
   "possible-slogans": [
     "Blackboard-Judge lives in continuity.",
     "Reducer Core lives in semantic transition.",
@@ -343,19 +314,26 @@
     "Interaction recognizes meaning; reducers process meaning.",
     "Reducer Core consumes semantic declarations, not raw phenomena."
   ],
-
   "related-documents": [
     "interaction-architecture-blackboard-judge.v1",
     "blackboard-judge-architecture.raw.world-model-reducer-core-blackboard-judge-projection.v1",
     "softspec.spec.v2",
     "lions-docs.description.json-document-format-for-llms.minimal.v1"
   ],
-
   "notes": [
     "This document should remain flexible and exploratory.",
     "Contradictory ideas may coexist temporarily.",
     "Architectural discoveries should be preserved before cleanup.",
     "Premature formalization should be resisted.",
     "Implementation experience should guide later canonization."
-  ]
+  ],
+  "review-of-log": {
+    "2025-13-2026": {
+      "evening": {
+        "interaction #1": "Reducer Core NOT about state mutation.\n  It's about:\n    - authoritative reality reconstruction from event streams\n\n  * a Lawful Center\n  * granted Authority\n  * Receives Claims/Events/Messages/Intents\n  * Reconstruction from Event Stream\n\n  Continuous/Interaction Sensing -- Raw/Tokenizer/Judge/Organism\n  Reducer Core -- Discrete Events to Authoritative Editor State\n  Projection -- Presentation to the User\n  World State -- Records of the Larger World\n\n  Events vs. Commands vs. Facts?\n\n  What events enter the Reducer:\n  - User driven events, interpreted by mechanisms\n    - tkinter widget based events\n    - events interpreted by organisms (Blackboard-Judge system)\n\n  Which things emerge from the Reducer:\n  - changes to the World State\n  - updates to the tkinter system state\n\n  What kind of state the Reducer Core owns:\n  - the state of the editing environment\n  - the index into world states that is active presently\n\n  Does the reducer emit secondary effects?\n  ( I'm not sure what that means. )\n\n  How Time Works\n  - I wonder if the Raw/facts layer should be visible to the reducer core?\n    Or should it have nothing that depends on, say for instance, the current time?\n    - Or should the present time be passed to it as an event?\n\n  Are Reducers Pure?\n  - I say Yes.\n  - Time signals are events.\n\n  Do Reducers replay from logs?\n  - When running tests, you are doing basically that.\n\n  How do Reducers compose?  Subreducers?  Hierarchy of reducers?\n  - Assumption: This means reducers with reducers inside.\n    - I suppose it can be done, but this isn't a priority right now.\n\n  Can Reducers eject events?\n  - NO.\n\n  What does \"official reliaty\" mean?\n  - Put that bong away; We're not concerned with this jibber jabber.\n  - Bring an actual problem, or get out of the engineering hall.\n\n  \n  What problem is the reducer-core fundamentally solving?\n\n  My stream of consciousness essay:\n    \n    - It makes it possible to separate all of the gui nonsense, from what the app actually does.\n      - Thus reducing errors, dramatically.\n      - Making it far easier to reason over the program.\n\n    So the problem it solves, very practically stated,\n    is the spaghetti code problem of GUI code mixing in with\n    how the program actually works, at an abstract level.\n\n    Therefore, making it easier to write complex applications.\n\n    In particular, editors, which are near and dear to my heart.\n\n\n  We need to keep the insight that Blackboard/Judge is fundamentally continuous, and the Reducer Core is fundamentally punctuated.\n\n  Blackboard-Judge is fundamentally: situated embodied cognition.\n  Reducer-Core is fundamentally: Semantic historical law.\n\n  Wing-Cat said it well:\n\nBlackboard-Judge\tReducer-Core\ncontinuous\tdiscrete\nepisode-based\ttransition-based\nembodied\tsemantic\nperceptual\tdeclarative\ncoordination\tcommitment\nongoing\tpunctuated\ninteraction ecology\thistorical record\n“what is happening?”\t“what happened?”\ntemporal negotiation\tlawful transition\n\n  Basic Map\n\nCONTINUOUS REALITY\n(raw embodied interaction)\n        ↓\nBLACKBOARD-JUDGE\n(recognize ongoing situations)\n        ↓\nSEMANTIC EVENTS\n(discrete meaning extraction)\n        ↓\nREDUCER-CORE\n(authoritative semantic transitions)\n        ↓\nWORLD MODEL\n(durable modeled reality)\n        ↓\nPROJECTION\n(visible manifestation)\n\n\n  Yes, the document should define: What qualifies as a reducer event.\n  \"Not every occurrence deserves semantic historicity.\"\n\n\n  I think I want something like:\n\n- a map of core architecture:\n  - blackboard-judge\n  - reducer-core\n  - world-model\n  - projection\n\n- additional maps\n  - \"Maps\" are depictions of the relationships between things.\n  - they don't need names more sophisticated than \"Core Architecture Map\"\n  - or \"Map of Flows within and Around the Reducer Core\"\n\n- a dictionary of concepts\n  - a brief on them\n  - essential elements in detail\n  - pointers to related concepts\n  - questions about the concept, and their basic answers\n\n  So some of the items will be like:\n\n* \"Event\" (Reducer Core)\n  -- where we talk about what is an event?\n  -- good candidates/bad candidates\n\nYou said:\n---\nWhat’s missing now is:\n\nconstitutional naming\ndivisions of authority\nevent taxonomy\nlawful boundaries\ncanonical examples\n---\n\n  I think that's pretty much what we need in this dictionary.\n\n",
+        "interaction #2": "A few notes:\n\n#1 -- I think we should put together a collection of maps and dictionary entries, then.\n\n  Map -- the four major divisions:\n  1. blackboard/judge (we need a better name for this -- maybe \"continuity engagement\")\n  2. reducer-core (maybe also needs a better name? \"discrete symbolic core\"?)\n  3. world-model\n  4. projection\n\n  Each of these is an individual \"concept\", too, for the dictionary,\n  but the treatment as a map is also important.\n  And the map can also point to the event stream feeding into the reducer-core from\n  the GUI environment, and from the \"continuity engagement system\" (or whatever we call it)\n\n\n#2 -- Yes, the documentation should NOT resolve everything; just lay out the general lay of the land.\n\n  Every program is different, and typically does things a little bit differently.\n  As long as we preserve architectural insight, I think we can figure out what to do.\n\n  But there are common features I need -- things like do/undo, and doing it right can be tricky.\n  I want good bedding here, so that Claude Code or Codex will know what I'm looking for,\n  and how to implement it well.\n\n\n#3 -- I like Maps, Dictionary, Skeletons, Case Studies.\n\n  But I think we won't have Case studies at first, and maybe just barely skeletons.\n  Let's start with Maps and Dictionaries, and stub the skeletons and case studies sections.\n\n\n",
+        "interaction #3": "Before we write the first version of the maps and concepts dictionary, --\n\nSuggest names to replace blackboard-judge and to replace reducer-core.\n\n\nAnd for the maps, I think the first map will look something like:\n\n----\n\nI. Continuity Engine (aka \"Blackboard Judge\")\n\n  Raw Facts Collection\n    |\n    V\n  Tokenizers\n    |\n    V\n  Judge & Organisms\n\n  Organisms can emit:\n  --> Events (for Discrete Engine)\n  --> Immediates (for Presentation)\n\n  DOCUMENTED PRIMARILY IN BLACKBOARD JUDGE DOCUMENTATION\n\n\nII. Discrete Engine (aka \"Reducer Core\")\n\n  Processes Events,\n  Changes State,\n  Emits Effects\n\n  --> World State Changes\n  --> User Interface Effects (update signals)\n\n  DOCUMENTED PRIMARILY AS \"REDUCER CORE\" SYSTEM\n\n  Do/Undo is primarily implemented here,\n  and represnts going back to prior state.\n\n  State is intentionally (relatively) small,\n  and represents the state of the editor,\n  including text buffer contents and such.\n\n\nIII. World Model\n\n  Essentially represents encyclopedic data storage.\n\n  Has a Do/Undo System quite different than the Discrete Engine's.\n\n  The Discrete Engine keeps an index key into a state of the world model.\n  When changes are applied, a new index key is supplied as well,\n  essentially a GUID to associate with the new state, and to be able\n  to recall (if possible.)\n\n\nIV. Projection\n\n  Projection has two primary aspects:\n\n  1. GUI User Interface Alignment\n    - the GUI shall be updated to reflect the Editor State (per the Discrete Engine)\n\n  2. Canvas/Graphical Display Alignment\n    - the representation of the World Model as depicted on the tkinter.Canvas\n      (or whatever immediate or retained mode representations exist)\n      are updated (or projected) to match the current World Model state\n    - any immediate effects are also represented on the display\n      (for example, a selection marque being drawn frame by frame)\n\n----\n\nAs for the layout of the dictionary entries:\n\n* identifier\n* title\n* concise meaning\n* why it exists\n* what it owns\n* what it does NOT own\n* neighboring concepts\n* examples\n* anti-examples\n* open questions\n\nYes.\n\n"
+      }
+    }
+  }
 }

@@ -1,0 +1,429 @@
+{
+  "document": {
+    "document-id": "reducer-core.concept-map.v1",
+    "title": "Reducer Core Concept Map",
+    "tags": [
+      "reducer-core",
+      "continuity-engine",
+      "world-model",
+      "projection",
+      "architecture",
+      "editor-architecture",
+      "maps",
+      "dictionary"
+    ],
+    "purpose": "Establish the early conceptual terrain surrounding the Reducer Core architecture, including core maps, terminology, authority boundaries, neighboring systems, and dictionary-style entries for major concepts.",
+    "author": [
+      "Lion Kimbro",
+      "Wing-Cat (Chat-GPT)"
+    ],
+    "status": "working-draft"
+  },
+  "orientation": {
+    "summary": "This document is not intended to rigidly finalize the architecture. Its purpose is to preserve architectural insight, stabilize terminology, establish authority boundaries, and create a conceptual map that can guide future implementations.",
+    "important-notes": [
+      "Different applications may implement these ideas differently.",
+      "The purpose is not rigid conformity.",
+      "The purpose is architectural coherence and shared understanding.",
+      "Maps and dictionary entries are intended to preserve distinctions and relationships.",
+      "This document is especially intended to support implementation clarity for both humans and AI coding systems."
+    ]
+  },
+  "maps": {
+    "core-architecture-map": {
+      "summary": "The four major divisions of the architecture and their primary flows.",
+      "diagram": [
+        "CONTINUOUS INTERACTION",
+        "↓",
+        "CONTINUITY ENGINE",
+        {
+          "internals": [
+            "RAW facts collection",
+            "TOKENIZERS",
+            "JUDGE",
+            "ORGANISMS"
+          ]
+        },
+        {
+          "emits": [
+            "semantic EVENTS for the DISCRETE ENGINE",
+            "IMMEDIATES for PRESENTATION"
+          ]
+        },
+        "↓",
+        "DISCRETE ENGINE",
+        {
+          "responsibilities": [
+            "process semantic events",
+            "change editor/workspace state",
+            "maintain compact semantic history",
+            "emit effects"
+          ]
+        },
+        {
+          "emits": [
+            "WORLD MODEL mutation effects",
+            "USER INTERFACE update effects"
+          ]
+        },
+        "↓",
+        "WORLD MODEL",
+        {
+          "responsibilities": [
+            "durable modeled reality",
+            "world revision history",
+            "large-scale storage",
+            "world undo/redo",
+            "indexes and caches"
+          ]
+        },
+        "↓",
+        "PROJECTION",
+        {
+          "aspects": [
+            "GUI alignment",
+            "Canvas/graphical alignment"
+          ]
+        }
+      ],
+      "notes": [
+        "The Continuity Engine is fundamentally continuous and episode-based.",
+        "The Discrete Engine is fundamentally punctuated and semantic.",
+        "The World Model may be vastly larger than the Discrete Engine state.",
+        "Projection is downstream from semantic state and world state."
+      ]
+    },
+    "continuity-vs-discrete-map": {
+      "summary": "Contrast between the Continuity Engine and the Discrete Engine.",
+      "comparison": {
+        "continuity-engine": [
+          "continuous",
+          "episode-based",
+          "embodied",
+          "perceptual",
+          "coordination",
+          "ongoing",
+          "interaction ecology",
+          "temporal negotiation",
+          "situated interaction"
+        ],
+        "discrete-engine": [
+          "discrete",
+          "transition-based",
+          "semantic",
+          "declarative",
+          "commitment",
+          "punctuated",
+          "historical record",
+          "lawful transition",
+          "workspace/editor state"
+        ]
+      }
+    },
+    "projection-map": {
+      "summary": "Projection has two major aspects.",
+      "aspects": {
+        "gui-alignment": {
+          "responsibilities": [
+            "update tkinter.Text widgets",
+            "update Tree/List widgets",
+            "update forms and labels",
+            "maintain GUI consistency with editor/workspace state"
+          ]
+        },
+        "canvas-alignment": {
+          "responsibilities": [
+            "update Canvas representations",
+            "project World Model contents visually",
+            "display immediates",
+            "display transient graphical effects",
+            "maintain visual manifestation"
+          ],
+          "examples": [
+            "selection marquees",
+            "hover highlights",
+            "preview geometry",
+            "drag rectangles"
+          ]
+        }
+      }
+    }
+  },
+  "dictionary": {
+    "continuity-engine": {
+      "identifier": "continuity-engine",
+      "title": "Continuity Engine",
+      "aka": "Blackboard-Judge System",
+      "concise-meaning": "A continuous interaction interpretation system responsible for embodied interaction recognition, coordination, temporal interaction episodes, and semantic event extraction.",
+      "why-it-exists": [
+        "To separate interaction continuity from semantic/editor state.",
+        "To prevent GUI interaction logic from contaminating semantic application logic.",
+        "To centralize interaction coordination and recognition."
+      ],
+      "what-it-owns": [
+        "RAW facts",
+        "DERIVED facts",
+        "TOKENIZERS",
+        "JUDGE",
+        "ORGANISMS",
+        "interaction continuity",
+        "pointer ownership",
+        "gesture recognition",
+        "interaction coordination",
+        "interaction temporality"
+      ],
+      "what-it-does-not-own": [
+        "editor semantic history",
+        "workspace/editor state",
+        "world revision history",
+        "durable modeled reality",
+        "large persistent storage"
+      ],
+      "neighboring-concepts": [
+        "semantic-event",
+        "organism",
+        "judge",
+        "immediate",
+        "discrete-engine",
+        "projection"
+      ],
+      "maps": [
+        "core-architecture-map",
+        "continuity-vs-discrete-map"
+      ],
+      "examples": [
+        "hover recognition",
+        "drag recognition",
+        "selection box tracking",
+        "gesture recognition",
+        "pointer coordination"
+      ],
+      "anti-examples": [
+        "document serialization",
+        "world persistence",
+        "editor undo history",
+        "large-scale data indexing"
+      ],
+      "open-questions": [
+        "Should the name eventually change?",
+        "How much should coordination law be generalized?",
+        "How should camera motion relate to continuity systems?"
+      ],
+      "read-for-more-detail": [
+        "interaction-architecture-blackboard-judge.v1"
+      ]
+    },
+    "discrete-engine": {
+      "identifier": "discrete-engine",
+      "title": "Discrete Engine",
+      "aka": "Reducer Core",
+      "concise-meaning": "A semantic transition engine that processes normalized semantic events, maintains compact editor/workspace state, and coordinates lawful semantic transitions.",
+      "why-it-exists": [
+        "To separate semantic/editor logic from GUI interaction chaos.",
+        "To make application logic easier to reason about.",
+        "To support lawful semantic history and undo/redo."
+      ],
+      "what-it-owns": [
+        "semantic events",
+        "workspace/editor state",
+        "compact semantic history",
+        "undo/redo",
+        "current world GUID reference",
+        "editor orientation state",
+        "mode/tool state",
+        "selection state when semantically meaningful"
+      ],
+      "what-it-does-not-own": [
+        "raw interaction state",
+        "gesture recognition",
+        "pointer movement",
+        "large world datasets",
+        "projection rendering",
+        "world indexes and caches"
+      ],
+      "neighboring-concepts": [
+        "semantic-event",
+        "world-model",
+        "projection",
+        "workspace-state",
+        "undo-redo"
+      ],
+      "maps": [
+        "core-architecture-map",
+        "continuity-vs-discrete-map"
+      ],
+      "examples": [
+        "DELETE_ITEM",
+        "COMMIT_TEXT_EDIT",
+        "CREATE_CONTACT",
+        "EXIT",
+        "SET_SELECTION"
+      ],
+      "anti-examples": [
+        "pointer moved",
+        "hover entered",
+        "drag threshold crossed",
+        "raw mouse motion"
+      ],
+      "open-questions": [
+        "Should reducers compose hierarchically?",
+        "How much workspace state belongs here?",
+        "What events deserve semantic history?"
+      ]
+    },
+    "semantic-event": {
+      "identifier": "semantic-event",
+      "title": "Semantic Event",
+      "concise-meaning": "A normalized, semantically meaningful discrete event intended for processing by the Discrete Engine.",
+      "why-it-exists": [
+        "To separate semantic meaning from raw interaction mechanics.",
+        "To normalize multiple interaction modalities into common semantic transitions."
+      ],
+      "what-it-owns": [
+        "semantic meaning",
+        "discrete transition intent"
+      ],
+      "what-it-does-not-own": [
+        "continuous interaction tracking",
+        "projection state",
+        "world persistence"
+      ],
+      "neighboring-concepts": [
+        "continuity-engine",
+        "discrete-engine",
+        "workspace-state"
+      ],
+      "maps": [
+        "core-architecture-map"
+      ],
+      "examples": [
+        "EXIT",
+        "DELETE_ITEM",
+        "CREATE_EDGE",
+        "COMMIT_TEXT_EDIT"
+      ],
+      "anti-examples": [
+        "LEFT_MOUSE_DOWN",
+        "POINTER_MOVED",
+        "HOVER_ENTERED"
+      ],
+      "open-questions": [
+        "What exactly qualifies as semantically historical?",
+        "Should semantic events always be replayable?"
+      ]
+    },
+    "world-model": {
+      "identifier": "world-model",
+      "title": "World Model",
+      "concise-meaning": "A large durable modeled reality system responsible for world storage, revision history, indexing, persistence, and reconstruction.",
+      "why-it-exists": [
+        "To separate enormous durable reality from compact editor/workspace state.",
+        "To allow the world to scale independently of the editor state."
+      ],
+      "what-it-owns": [
+        "durable world state",
+        "world revisions",
+        "world undo/redo",
+        "indexes",
+        "caches",
+        "serialization",
+        "reconstruction",
+        "large datasets"
+      ],
+      "what-it-does-not-own": [
+        "raw interaction",
+        "workspace/editor orientation",
+        "gesture recognition",
+        "projection rendering"
+      ],
+      "neighboring-concepts": [
+        "discrete-engine",
+        "projection",
+        "world-guid"
+      ],
+      "maps": [
+        "core-architecture-map"
+      ],
+      "examples": [
+        "knowledge graph",
+        "large document collections",
+        "encyclopedic datasets",
+        "geometry stores"
+      ],
+      "anti-examples": [
+        "pointer ownership",
+        "hover state",
+        "active drag interaction"
+      ],
+      "open-questions": [
+        "How should reconstruction failure be represented?",
+        "How should world history garbage collection work?"
+      ]
+    },
+    "projection": {
+      "identifier": "projection",
+      "title": "Projection",
+      "concise-meaning": "A manifestation system responsible for aligning visible GUI and graphical presentation with editor state, world state, and immediates.",
+      "why-it-exists": [
+        "To separate rendering and manifestation from semantic/editor logic.",
+        "To maintain visible consistency with application state."
+      ],
+      "what-it-owns": [
+        "GUI alignment",
+        "Canvas alignment",
+        "visual manifestation",
+        "immediate rendering",
+        "projection artifacts"
+      ],
+      "what-it-does-not-own": [
+        "semantic history",
+        "gesture recognition",
+        "world persistence",
+        "editor transition logic"
+      ],
+      "neighboring-concepts": [
+        "immediate",
+        "world-model",
+        "discrete-engine",
+        "continuity-engine"
+      ],
+      "maps": [
+        "core-architecture-map",
+        "projection-map"
+      ],
+      "examples": [
+        "Canvas updates",
+        "Tree widget synchronization",
+        "hover highlights",
+        "selection marquees"
+      ],
+      "anti-examples": [
+        "semantic event recognition",
+        "world indexing",
+        "editor undo logic"
+      ],
+      "open-questions": [
+        "Should camera state belong partly to projection?",
+        "How should retained-mode and immediate-mode rendering interact?"
+      ]
+    }
+  },
+  "skeletons": {
+    "status": "stub",
+    "notes": [
+      "Implementation skeletons are planned but intentionally deferred.",
+      "The architecture maps and dictionary should stabilize first."
+    ],
+    "future-entry": "Many applications may omit the Continuity Engine entirely.\nIn such systems, semantic events are emitted directly from GUI toolkit callbacks, menu systems, keyboard bindings, or similar interaction mechanisms into the Discrete Engine.\n\nThe Continuity Engine becomes valuable when interaction continuity, gesture recognition, coordination, temporal interaction episodes, or embodied interaction complexity become substantial architectural concerns."
+  },
+  "case-studies": {
+    "status": "stub",
+    "notes": [
+      "Case studies are planned but intentionally deferred.",
+      "Likely future examples include editor systems and merchant databases."
+    ]
+  },
+  "closing-notes": {
+    "summary": "This document preserves the current architectural terrain without attempting premature finalization. The architecture is expected to continue evolving through implementation experience."
+  }
+}
